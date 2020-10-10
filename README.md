@@ -20,6 +20,8 @@ const socket = io.connect('' /* Back-end URL */);
 const socket = io.connect('http://localhost:8080' /* Back-end URL */);
 ```
 
+NOTE: It is also a good idea to minify all the code and obfuscate some JavaScript files such as [background.js](https://github.com/kallo-project/kallo-student-extension/blob/main/background.js) and [index.js](https://github.com/kallo-project/kallo-student-extension/blob/main/index.js).
+
 [Download Demo](https://github.com/kallo-project/kallo-student-extension/releases)
 
 ### Installing on Chrome
