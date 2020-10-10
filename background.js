@@ -1,5 +1,5 @@
 // #region Variables
-const socket = io.connect('' /* Back-end URL */);
+const socket = io.connect('https://kallo-backend.herokuapp.com' /* Back-end URL */);
 let SOCKET_CONNECTION = false;
 // #endregion
 
@@ -87,8 +87,8 @@ chrome.runtime.onMessage.addListener((request, _, sendResponse) => {
           } else {
             chrome.storage.local.set(JSON.parse(obj.message), () => {
               chrome.storage.local.get(
-                ['restricted_access', 'allowed_sites'],
-                ({ restricted_access, allowed_sites }) => {
+                ['restricted_access', 'allowed_sites', 'test_mode'],
+                ({ restricted_access, allowed_sites, test_mode }) => {
                   if (restricted_access) {
                     chrome.tabs.query({}, (tabs) => {
                       for (const i in tabs) chrome.tabs.remove(tabs[i].id);
@@ -96,9 +96,11 @@ chrome.runtime.onMessage.addListener((request, _, sendResponse) => {
 
                     for (const i in allowed_sites) chrome.tabs.create({ url: `https://${allowed_sites[i]}` });
 
-                    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) =>
-                      chrome.windows.update(tabs[0].windowId, { state: 'fullscreen' })
-                    );
+                    if (test_mode) {
+                      chrome.tabs.query({ active: true, currentWindow: true }, (tabs) =>
+                        chrome.windows.update(tabs[0].windowId, { state: 'fullscreen' })
+                      );
+                    }
                   }
                 }
               );
