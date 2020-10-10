@@ -1,5 +1,5 @@
 // #region Variables
-const socket = io.connect('https://kallo-backend.herokuapp.com' /* Back-end URL */);
+const socket = io.connect('' /* Back-end URL */);
 let SOCKET_CONNECTION = false;
 // #endregion
 
