@@ -2,7 +2,6 @@
   "manifest_version": 2,
   "name": "Kallo",
   "version": "1.0.0",
-  "default_locale": "en-US",
   "description": "Kallo Chrome extension",
   "author": "Dip Roy",
   "icons": {
