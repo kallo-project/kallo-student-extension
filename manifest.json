@@ -3,7 +3,7 @@
   "name": "Kallo",
   "version": "1.0.0",
   "default_locale": "en-US",
-  "description": "Student Chrome extension for Kallo.",
+  "description": "Kallo Chrome extension",
   "author": "Dip Roy",
   "icons": {
     "16": "icons/16.png",
