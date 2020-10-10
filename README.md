@@ -1,7 +1,7 @@
 # kallo-student-extension
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Created Using](https://img.shields.io/badge/JavaScript-100%25-green.svg)](https://wikipedia.org/wiki/JavaScript)
+[![Created Using](https://img.shields.io/badge/JavaScript-98.2%25-green.svg)](https://wikipedia.org/wiki/JavaScript)
 [![Code Style: Prettier](https://img.shields.io/badge/Code%20Style-Prettier-blue.svg)](https://prettier.io/)
 
 [https://github.com/kallo-project/about](https://github.com/kallo-project/about)
