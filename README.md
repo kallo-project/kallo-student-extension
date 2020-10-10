@@ -11,13 +11,13 @@
 ### Usage
 After cloning this repository, open the [background.js](https://github.com/kallo-project/kallo-student-extension/blob/main/background.js) file and on [line number two](https://github.com/kallo-project/kallo-student-extension/blob/main/background.js#L2), insert the URL to the back-end.
 
-Example (let's say `https://localhost:8080` is the URL to our back-end):
+Example (let's say `http://localhost:8080` is the URL to our back-end):
 ```javascript
 // Before:
 const socket = io.connect('' /* Back-end URL */);
 
 // After:
-const socket = io.connect('https://localhost:8080' /* Back-end URL */);
+const socket = io.connect('http://localhost:8080' /* Back-end URL */);
 ```
 
 [Download Demo](https://github.com/kallo-project/kallo-student-extension/releases)
