@@ -2,7 +2,7 @@ if (!location.href.startsWith('chrome')) {
   onload = () => {
     setInterval(() => {
       chrome.storage.local.get(['initialized', 'test_mode'], ({ initialized, test_mode }) => {
-        // TODO: Switch this to something much more efficient.
+        // TODO: Switch this to something more efficient.
         if (initialized && test_mode && (screen.availHeight || screen.height - 30) > window.innerHeight) {
           chrome.runtime.sendMessage({
             socket: true,
