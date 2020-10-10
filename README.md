@@ -31,6 +31,12 @@ NOTE: It is also a good idea to minify all the code and obfuscate some JavaScrip
 
 ----
 
+### Technologies Used
+- [Chrome APIs](https://developer.chrome.com/extensions/api_index)
+- [TypeScript](https://wikipedia.org/wiki/JavaScript)
+
+----
+
 ### License
 [MIT License](https://opensource.org/licenses/MIT)
 
