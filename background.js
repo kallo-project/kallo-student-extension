@@ -1,9 +1,9 @@
 // #region Variables
+const BACKEND_URL = ''; /* Back-end URL */
 let SOCKET_CONNECTION = false;
 let RESTRICTED_ACCESS = false;
 let ALLOWED_SITES = [];
 
-const BACKEND_URL = ''; /* Back-end URL */
 const socket = io.connect(BACKEND_URL);
 // #endregion
 
