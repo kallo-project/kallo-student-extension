@@ -1,5 +1,6 @@
 // #region Variables
-const socket = io.connect('' /* Back-end URL */);
+const BACKEND_URL = ''; /* Back-end URL */
+const socket = io.connect(BACKEND_URL);
 let SOCKET_CONNECTION = false;
 // #endregion
 
@@ -45,6 +46,7 @@ chrome.webRequest.onBeforeRequest.addListener(
           if (
             typeof host === 'string' &&
             !host.startsWith('chrome') &&
+            !BACKEND_URL.includes(host) &&
             restricted_access &&
             allowed_sites.filter((i) => host.includes(i)).length === 0
           )
