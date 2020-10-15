@@ -48,7 +48,7 @@ chrome.webRequest.onBeforeRequest.addListener(
         typeof host === 'string' &&
         !host.startsWith('chrome') &&
         !BACKEND_URL.includes(host) &&
-        allowed_sites.filter((i) => host.includes(i)).length === 0
+        ALLOWED_SITES.filter((i) => host.includes(i)).length === 0
       )
         return { cancel: true };
     }
