@@ -1,3 +1,4 @@
+// The DOM of Chrome pages are protected.
 if (!location.href.startsWith('chrome')) {
   onload = () => {
     setInterval(() => {
