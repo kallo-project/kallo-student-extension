@@ -40,7 +40,7 @@ socket.on('connect', () => {
 // #region Chrome events
 chrome.webRequest.onBeforeRequest.addListener(
   (details) => {
-    // We were having some issues with using Chrome's storage API.
+    // We were having some issues with Chrome's storage API.
     if (RESTRICTED_ACCESS) {
       const host = details.initiator || details.url;
       
@@ -130,7 +130,7 @@ chrome.runtime.onMessage.addListener((request, _, sendResponse) => {
           chrome.storage.local.get(['class_id', 'student_id'], ({ class_id, student_id }) => {
             socket.emit('leave', JSON.stringify({ class_id, student_id }));
             chrome.storage.local.clear();
-            chrome.runtime.reload(); // TODO: Replace this with a proper way to reset the socket connection
+            chrome.runtime.reload(); // TODO: Replace this with a proper way to reset the socket connection.
             sendResponse({ success: true });
           });
         } catch (e) {
