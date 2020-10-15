@@ -1,7 +1,10 @@
 // #region Variables
+let SOCKET_CONNECTION = false;
+let RESTRICTED_ACCESS = false;
+let ALLOWED_SITES = [];
+
 const BACKEND_URL = ''; /* Back-end URL */
 const socket = io.connect(BACKEND_URL);
-let SOCKET_CONNECTION = false;
 // #endregion
 
 // #region Socket connections
@@ -37,23 +40,18 @@ socket.on('connect', () => {
 // #region Chrome events
 chrome.webRequest.onBeforeRequest.addListener(
   (details) => {
-    chrome.storage.local.get(
-      ['initialized', 'restricted_access', 'allowed_sites'],
-      ({ initialized, restricted_access, allowed_sites }) => {
-        if (initialized) {
-          const host = details.initiator || details.url;
-
-          if (
-            typeof host === 'string' &&
-            !host.startsWith('chrome') &&
-            !BACKEND_URL.includes(host) &&
-            restricted_access &&
-            allowed_sites.filter((i) => host.includes(i)).length === 0
-          )
-            return { cancel: true };
-        }
-      }
-    );
+    // We were having some issues with using Chrome's storage API.
+    if (RESTRICTED_ACCESS) {
+      const host = details.initiator || details.url;
+      
+      if (
+        typeof host === 'string' &&
+        !host.startsWith('chrome') &&
+        !BACKEND_URL.includes(host) &&
+        allowed_sites.filter((i) => host.includes(i)).length === 0
+      )
+        return { cancel: true };
+    }
   },
   { urls: ['*://*/*'] },
   ['blocking']
