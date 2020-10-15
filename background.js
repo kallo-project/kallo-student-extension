@@ -89,6 +89,10 @@ chrome.runtime.onMessage.addListener((request, _, sendResponse) => {
               chrome.storage.local.get(
                 ['restricted_access', 'allowed_sites', 'test_mode'],
                 ({ restricted_access, allowed_sites, test_mode }) => {
+                  // Once again, we were having issues with Chrome's storage API--website blocking wasn't working.
+                  RESTRICTED_ACCESS = restricted_access;
+                  ALLOWED_SITES = allowed_sites;
+                  
                   if (restricted_access) {
                     chrome.tabs.query({}, (tabs) => {
                       for (const i in tabs) chrome.tabs.remove(tabs[i].id);
